@@ -54,11 +54,12 @@ class Retune:
 
         with open(self.pathSave, 'w', encoding='utf-8') as fp:
             yaml.safe_dump(dst, fp, allow_unicode=True)
-        print("Retuned config file has been saved to {}".format(self.pathSave))
+        if verbose:
+            print("Retuned config file has been saved to {}".format(self.pathSave))
 
     def __filter_nonGlobal_(self, fn, iterable):
         retVal = []
-        for it in tqdm(iterable):
+        for it in tqdm(iterable, disable=not verbose):
             retVal.append(fn(it))
         return list(filter(lambda x: x, retVal))
             

@@ -10,3 +10,5 @@ import sys
 import shutil
 import ipaddress
 import argparse
+
+verbose = False

@@ -12,9 +12,15 @@ __parser.add_argument(
 __parser.add_argument(
     '-o', '--output', type=str, help='Output file path.', default='config.yml'
 )
+__parser.add_argument(
+    '-v', '--verbose', default=False, action='store_true'
+)
 args = __parser.parse_args()
 
 
 def main():
+    global verbose
+    verbose = args.verbose
+
     r = Retune(args.config, args.template, args.output)
     r.dump_withOriginName()
