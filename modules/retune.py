@@ -53,7 +53,8 @@ class Retune:
         except KeyError:
             dst['proxy-groups'] = []
 
-        dst['proxy-groups'].append(
+        dst['proxy-groups'].insert(
+            0,
             {'name': 'PROXY', 'type': 'select', 'proxies': lNames}
         )
         with open(self.pathSave, 'w', encoding='utf-8') as fp:
